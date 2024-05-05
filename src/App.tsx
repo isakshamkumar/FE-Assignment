@@ -1,26 +1,20 @@
-import React from 'react';
-import { BrowserRouter, Routes,Route } from 'react-router-dom';
-import MiniDrawer from './components/SideBar';
-import Landing from './pages/Landing';
+import { Provider } from "react-redux";
+import JobPage from "./JobPage";
+import theme from "./Theme";
 
-function App() {
+import { ThemeProvider } from "@emotion/react";
+import { store } from "./store";
+
+const App = () => {
   return (
-  <>
-
-<MiniDrawer/>
-<div style={{padding:'5rem'}}>
-
-  <Routes>
-<Route path='/' element={<Landing/> } />
-    {/* <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/services" element={<Services />} />
-  <Route path="/contact" element={<Contact />} /> */}
-
-  </Routes>
-  </div>
-  </>
+    <div>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <JobPage />
+        </Provider>
+      </ThemeProvider>
+    </div>
   );
-}
+};
 
 export default App;

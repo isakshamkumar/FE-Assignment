@@ -3,10 +3,10 @@ import ToggleJobs from 'src/components/ToggleJobs'
 
 type Props = {}
 
-const Landing = (props: Props) => {
+const JobPage = (props: Props) => {
   return (
     <ToggleJobs/>
   )
 }
 
-export default Landing
+export default JobPage
