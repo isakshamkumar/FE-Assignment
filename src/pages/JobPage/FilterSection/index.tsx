@@ -10,8 +10,8 @@ import {
   } from "@mui/material";
   import { useEffect, useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
-  import { AppDispatch, RootState } from "../../store";
-  import { applyFilters, fetchJobData } from "../../store/slice/jobData";
+  import { AppDispatch, RootState } from "../../../store";
+  import { applyFilters, fetchJobData } from "../../../store/slice/jobData";
   
   
   const FilterSection = (): JSX.Element => {

@@ -1,11 +1,10 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { AppDispatch } from "../../store";
-import { fetchJobData } from "../../store/slice/jobData";
-import JobCard from "../../components/JobCard";
-
+import { RootState } from "../../../store";
+import { AppDispatch } from "../../../store";
+import { fetchJobData } from "../../../store/slice/jobData";
+import JobCard from "src/components/JobCard";
 const JobListSection = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
   const state = useSelector((state: RootState) => state);
