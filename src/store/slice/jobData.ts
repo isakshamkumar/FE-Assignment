@@ -5,7 +5,7 @@ export const fetchJobData = createAsyncThunk("fetchJobData", async () => {
   myHeaders.append("Content-Type", "application/json");
 
   const body = JSON.stringify({
-    limit: 50,
+    limit: 8,
     offset: 0,
   });
 
@@ -34,12 +34,36 @@ const jobDataSlice = createSlice({
   },
   reducers: {
     applyFilters: (state, action) => {
-      const { filter,role} = action.payload;
-console.log(filter,'applyFilters');
-
-      //@ts-ignore
-      const filteredData = state.data?.jdList.filter((item) => item[role] === filter);
-    console.log(filteredData,'filteredData');
+        const { filter, role } = action.payload;
+        console.log(filter, 'applyFilters',role,'role');
+        //@ts-ignore
+        console.log(state.data?.jdList,'jdlist'); // Log jdList array
+        //@ts-ignore
+        const filteredData = state.data?.jdList.filter((jd) => {
+          if (role === "jobRole") {
+            // console.log(jd.jobRole, 'jd.jobRole');
+            
+            return jd.jobRole.toLowerCase() === filter[0].toLowerCase();
+          }
+          if(role==="numberOfEmployees"){
+            return jd.numberOfEmployees === filter;
+          }
+          if (role === "location") {
+            return jd.location.toLowerCase() === filter[0].toLowerCase();
+          }
+          if (role === "minsalary") {
+            const minSalaray= filter.split('-')[0];
+            const maxSalaray= filter.split('-')[1];
+            return jd.minJdSalary >= minSalaray && jd.minJdSalary <= maxSalaray;          }
+          if (role === "experience") {
+            return jd.minExp === filter;
+          }
+          return true;
+        }
+        );
+        console.log(filteredData, 'filteredData');
+    //@ts-ignore
+          state.data.jdList = filteredData;
     
   },},
   extraReducers: (builder) => {
