@@ -2,8 +2,8 @@ import { HourglassBottom, HourglassTop } from "@mui/icons-material";
 import { Box, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import theme from "../../Theme";
-import ApplyButton from "../ApplyButton";
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import ApplyButton from "../EasyApply";
+import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 interface Props {
   companyLogo: string;
   companyName: string;
@@ -14,6 +14,7 @@ interface Props {
   minExp: number;
   desc: string;
   currency: string;
+  pathTo: string;
 }
 const JobCard: React.FC<Props> = ({
   companyLogo,
@@ -24,6 +25,7 @@ const JobCard: React.FC<Props> = ({
   maxsalary,
   minExp,
   currency,
+  pathTo,
   desc,
 }): JSX.Element => {
   const [isHourglassTop, setIsHourglassTop] = useState(false);
@@ -167,18 +169,50 @@ const JobCard: React.FC<Props> = ({
           >
             About us
           </Typography>
-          <Typography
-            sx={{
-              cursor: "pointer",
-              color: theme.colorConstants.black,
-              fontSize: "14px",
-              fontWeight: "400",
-              overflow: { md: "unset", xs: "scroll" },
-              height: { md: "300px", xs: "250px" },
-            }}
-          >
-            {desc}
-          </Typography>
+          <Box position={"relative"}>
+            <Typography
+              sx={{
+                cursor: "pointer",
+                color: theme.colorConstants.black,
+                fontSize: "14px",
+                fontWeight: "400",
+
+                overflow: { xs: "hidden" },
+                height: { md: "250px", xs: "200px" },
+              }}
+            >
+              {desc}
+            </Typography>
+            <Box
+              position={"absolute"}
+              sx={{
+                zIndex: 9999,
+                width: "100%",
+                backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), white)`,
+                padding: "120px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                bottom: 0,
+              }}
+            ></Box>
+            <Typography
+              sx={{
+                zIndex: 9999999,
+                cursor: "pointer",
+                color: theme.colorConstants.cyan,
+                fontSize: "14px",
+                fontWeight: "700",
+                width: "100%",
+
+                position: "absolute",
+                textAlign: "center",
+                bottom: "0",
+              }}
+            >
+              View All
+            </Typography>
+          </Box>
         </Box>
         <Box display={"flex"} flexDirection={"column"} gap={"8px"}>
           <Typography
@@ -203,7 +237,10 @@ const JobCard: React.FC<Props> = ({
             {minExp} years
           </Typography>
         </Box>
-        <ApplyButton><ElectricBoltIcon color="warning" sx={{marginRight:'1rem'}}/> Easy Apply</ApplyButton>
+        <ApplyButton link={pathTo}>
+          <ElectricBoltIcon color="warning" sx={{ marginRight: "1rem" }} /> Easy
+          Apply
+        </ApplyButton>
       </Box>
     </>
   );

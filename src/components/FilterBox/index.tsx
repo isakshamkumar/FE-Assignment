@@ -20,6 +20,7 @@ const FilterBox: React.FC<Props> = ({ heading, children }): JSX.Element => {
         height={"fit-content"}
         position={"relative"}
         sx={{
+          backgroundColor: theme.colorConstants.white,
           border: `1px solid ${theme.colorConstants.borderedGray ?? ""}`,
         }}
       >
@@ -61,7 +62,12 @@ const FilterBox: React.FC<Props> = ({ heading, children }): JSX.Element => {
             />
           </Box>
         </Box>
-        <Box display={openDrop ? "block" : "none"}>{children}</Box>
+        <Box
+          display={openDrop ? "block" : "none"}
+          onClick={() => setOpenDrop(false)}
+        >
+          {children}
+        </Box>
       </Box>
     </>
   );

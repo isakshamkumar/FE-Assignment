@@ -123,7 +123,7 @@ declare module "@mui/material/Typography" {
     button16: true;
   }
 }
-const softRed = "F15656";
+const softRed = "#F15656";
 const brown = "#333";
 const visibleGray = "#666666";
 const bgColorLightGray = "#786DB1";
@@ -186,41 +186,40 @@ const theme = createTheme({
   },
 
   typography: {
-    fontFamily: ["Inter", "switzer", "Montserrat"].join(","),
     h1: {
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       fontWeight: 700,
       fontSize: "46px",
     },
     h2: {
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       fontWeight: 700,
       fontSize: "40px",
     },
     h3: {
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       fontWeight: 600,
       fontSize: "28px",
       lineHeight: "36px",
     },
     h4: {
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       fontWeight: 700,
       fontSize: "18px",
       lineHeight: "20px",
     },
     h5: {
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       fontWeight: 600,
       fontSize: "16px",
     },
     h6: {
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       fontWeight: 600,
       fontSize: "12px",
     },
     subtitle1: {
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       fontSize: "16px",
       fontWeight: 400,
       lineHeight: "22px",
@@ -229,20 +228,20 @@ const theme = createTheme({
       color: bgColorLightGray,
     },
     body2: {
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       fontWeight: 400,
       fontSize: "18px",
       lineHeight: "27px",
     },
     body1: {
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       fontWeight: 400,
       fontSize: "14px",
       lineHeight: "21px",
     },
     button16: {
       // Let’s Talk
-      fontFamily: "switzer",
+      fontFamily: "Poppins",
       fontWeight: 600,
       fontSize: "16px",
     },
